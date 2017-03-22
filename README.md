@@ -29,3 +29,48 @@ mock反向代理服务器
 ##### mock-server start
 
 启动代理服务器
+
+### mock.json说明
+
+基本格式为
+
+    {
+        "host": "www.taobao.com",
+        "path": "/Users/huangsy/work/mock-test/data",
+        "api": {
+            "item": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "length": 8
+                },
+                {
+                    "name": "date",
+                    "type": "date",
+                    "length": "1"
+                }
+            ],
+            "bill.json": [
+                {
+                    "name": "items",
+                    "type": "item",
+                    "length": 8
+                }
+            ]
+        }
+    }
+
+##### host
+
+代理域名，跟SwitchyOmega中条件设置的域名一致
+
+##### path
+
+数据仓库地址，默认为当前路径
+
+##### api
+
+接口列表
+
+1. key为接口名称或数据类型，默认以.json为后缀为接口名称，其他为数据类型
+2. name为字段名称，type为字段类型(string, number, date, 自定义)，length为字段长度
